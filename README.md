@@ -13,7 +13,8 @@
 1. Install `docker` and `docker-compose`.
 2. Run `docker compose up`.
 3. Find in the log a link that looks like `http://127.0.0.1:8888/?token=*` and access it with your browser.
-4. Open a new `Python` notebook, and type your script under the `%%clingo -V0 0` cell magic. For example:
+4. Please note that `~/work/` in the container is bounded to `./` in the host machine.
+5. Open a new `Python` notebook, and type your script under the `%%clingo -V0 0` cell magic. For example:
 
    ```prolog
    %%clingo -V0 0
