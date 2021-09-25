@@ -4,5 +4,7 @@ services:
     image: "stephsamson/clingo-notebook"
     ports:
       - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
     # environment:
     # $PWD: ""
