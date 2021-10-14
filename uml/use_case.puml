@@ -1,0 +1,15 @@
+@startuml Graph Coloring with ASP
+
+actor "BioData + Graph" as data
+actor Rules
+package AspSystem {
+    usecase GenerateInstances as inst
+    data --> inst
+    usecase FilterInstances as filter
+    inst --> filter : <<include>>
+    Rules --> filter
+    usecase GenerateSolution as solve
+    filter --> solve : <<include>>
+}
+
+@enduml
