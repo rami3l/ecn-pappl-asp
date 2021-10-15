@@ -1,0 +1,23 @@
+@startuml Graph Coloring with ASP
+
+actor User
+actor Maintainer
+package "ASP Graph Coloring System" {
+    usecase "Input graph" as graph
+    usecase "Input bio data" as data
+    usecase "Input rules" as rules
+    usecase "Generate instances" as inst
+    usecase "Filter instances" as filter
+    usecase "Get solutions" as solve
+    Maintainer -> graph
+    User -> data
+    Maintainer -> rules
+    User -> solve
+    inst --> graph : <<includes>>
+    inst --> data : <<includes>>
+    filter --> inst : <<includes>>
+    filter --> rules : <<includes>>
+    solve --> filter : <<includes>>
+}
+
+@enduml
