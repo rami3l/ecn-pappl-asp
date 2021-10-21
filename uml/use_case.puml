@@ -1,23 +1,28 @@
 @startuml Graph Coloring with ASP
+top to bottom direction
 
 actor User
-actor Maintainer
+actor Modeler
+actor "ASP Solver (Clasp)" as Solver
 package "ASP Graph Coloring System" {
     usecase "Input graph" as graph
     usecase "Input bio data" as data
     usecase "Input rules" as rules
     usecase "Generate instances" as inst
     usecase "Filter instances" as filter
-    usecase "Get solutions" as solve
-    Maintainer -> graph
+    usecase "Get solutions" as solution
+    usecase "Problem solving" as solving
+    User -> graph
     User -> data
-    Maintainer -> rules
-    User -> solve
+    Modeler -> rules
+    User -> solution
+    Solver -> solving
+    filter --> inst : <<includes>>
     inst --> graph : <<includes>>
     inst --> data : <<includes>>
-    filter --> inst : <<includes>>
-    filter --> rules : <<includes>>
-    solve --> filter : <<includes>>
+    solving --> filter : <<includes>>
+    solving --> rules : <<includes>>
+    solution --> solving : <<extends>> (if solutions exist)
 }
 
 @enduml
