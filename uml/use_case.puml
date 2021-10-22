@@ -2,7 +2,7 @@
 top to bottom direction
 
 actor User
-actor Modeler
+'actor Modeler
 actor "ASP Solver (Clasp)" as Solver
 package "ASP Graph Coloring System" {
     usecase "Input graph" as graph
@@ -14,7 +14,7 @@ package "ASP Graph Coloring System" {
     usecase "Problem solving" as solving
     User -> graph
     User -> data
-    Modeler -> rules
+    'Modeler -> rules
     User -> solution
     Solver -> solving
     filter --> inst : <<includes>>
